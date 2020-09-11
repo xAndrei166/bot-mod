@@ -1,3 +1,3 @@
 # bot-moderation
 
-Lovesbot moderation modues
+Lovesbot moderation modules
