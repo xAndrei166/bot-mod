@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const util = require('util');
 const evalCmd = require('./eval.js');
 const kick = require('./kick.js');
+const ban = require('./ban.js');
 
 const bot = new Discord.Client({
     disableEveryone: true,
@@ -36,11 +37,10 @@ bot.on("message", async message => {
             return evalCmd(message, code);
         }
         else if (cmd === "kick" && message.author.id === info.owner || message.author.id === info.owner2){
-            if(!args){
-                return message.channel.send("who tf should i kick, please mention the user and reason");
-            }  
-            //const kickTag = message.mentions.user;
             return kick(message, args);
+        }
+        else if(cmd === "ban" && message.author.id === info.owner || message.author.id === info.owner2 ){
+            return ban(message, args);
         }
 
         else { 
@@ -48,7 +48,6 @@ bot.on("message", async message => {
         }
         
     } else if (message.content.indexOf("<@"+bot.user.id) === 0 || message.content.indexOf("<@!"+bot.user.id) === 0) { 
-
         return message.channel.send(`Use \`${info.prefix}\` to interact with me.`); 
     }
     return;
@@ -60,7 +59,5 @@ process.on('uncaughtException', (err) => {
 });
 process.on('unhandledRejection', err => {
     console.error('Uncaught Promise Error: ', err);
-    //message.channel.send("i fucked up");
 });
-
 bot.login(info.login);
