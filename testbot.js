@@ -1,9 +1,9 @@
-const info = require('./info.json');
+const info = require('./func/info.json');
+const evalCmd = require('./func/eval.js');
+const kick = require('./func/kick.js');
+const ban = require('./func/ban.js');
+const warn = require('./func/warn.js');
 const Discord = require('discord.js');
-const evalCmd = require('./eval.js');
-const kick = require('./kick.js');
-const ban = require('./ban.js');
-const warn = require('./warn.js');
 var db = require('quick.db');
 
 const bot = new Discord.Client({
