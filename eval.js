@@ -13,7 +13,7 @@ function clean(text) {
 }
 
 module.exports = (message, code) => {
-    if(message.author.id !== info.owner) return;
+    if(message.author.id !== info.owner || message.author.id !== info.owner2) return;
     try {
         let evaled = eval(code);
         console.log(code);

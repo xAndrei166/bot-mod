@@ -1,5 +1,3 @@
-const util = require('util');
-var db = require('quick.db');
 const discord = require('discord.js');
 console.log('warn module active');
 
@@ -32,15 +30,13 @@ module.exports = (message, args, db) => {
     //message.channel.send(trash_embed_LOL);
     
     if (warns === null){
-        db.set(`warnings_${message.guild_id}_${usr.id}`, 1);
-        message.channel.send(trash_embed_LOL);
-        let test = db.get(`warnings_${message.guild_id}_${usr.id}`);
-        console.log(test);
-    } else {
-        db.add(`warnings_${message.guild.id}_${target.id}`, +1);
+        db.set(`warnings_${message.guild_id}_${target.id}`, 1);
         message.channel.send(trash_embed_LOL);
         let test = db.get(`warnings_${message.guild_id}_${target.id}`);
-        console.log(test)
+        console.log(test);
+    } else {
+        db.add(`warnings_${message.guild.id}_${target.id}`, 1);
+        message.channel.send(trash_embed_LOL);
     
     }
 }}
