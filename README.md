@@ -1,3 +1,4 @@
+
 # bot-moderation
 
   
@@ -19,3 +20,4 @@ and then
   
 
     node testbot.js
+made by xandrei with the help of dukemz and ad2017
