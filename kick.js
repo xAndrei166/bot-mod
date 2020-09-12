@@ -30,7 +30,8 @@ module.exports = (message, args) => {
     .setTitle("Action: Kick")
     .setDescription(`kicked out ${target} (${target.id}) \ for: ${reason}`)
     .setColor("#ff2050")
-    .setFooter(`kicked by ${message.author.username}`);
+    .setFooter(`kicked by ${message.author.username}`)
+    .setTimestamp();
     message.channel.send(trash_embed_LOL);
     target.kick({reason:reason});
     }
