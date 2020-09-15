@@ -9,7 +9,7 @@ Lovesbot moderation modules
 
 # running and configuring
 
-install discord.js version 12, quick.db (+ all of its dependencies)
+install discord.js version 12, quick.db (+ all of its garbage dependencies)
 
   
 
