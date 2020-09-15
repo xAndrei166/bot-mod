@@ -1,9 +1,9 @@
-const info = require('./func/info.json');
-const evalCmd = require('./func/eval.js');
-const kick = require('./func/kick.js');
-const ban = require('./func/ban.js');
-const warn = require('./func/warn.js');
+const info = require('./info.json');
 const Discord = require('discord.js');
+const evalCmd = require('./eval.js');
+const kick = require('./kick.js');
+const ban = require('./ban.js');
+const warn = require('./warn.js');
 var db = require('quick.db');
 
 const bot = new Discord.Client({
@@ -26,13 +26,8 @@ bot.on("message", async message => {
         let args = msg.split(" "); 
         let cmd = args[0].toLowerCase(); 
         args.shift(); 
-      
-        if (cmd === 'hi' || cmd === 'hello') { 
-            message.channel.send(`Hi there ${message.author.toString()}` + `!` );
-            return; 
-        }
 
-        else if (cmd === "test"){
+        if (cmd === "test"){
             return message.channel.send("OK");
         }
         else if (cmd === "eval" && message.author.id === info.owner || message.author.id === info.owner2){ 
@@ -52,6 +47,12 @@ bot.on("message", async message => {
             const tcheckw = message.mentions.members.first() || message.author;
             let wcheck = db.get(`warnings_${message.guild.id}_${tcheckw.id}`);
             message.channel.send(`${tcheckw} has ${wcheck} warns`);
+        }
+        else if(cmd === "purge" && message.author.id === info.owner || message.author.id === info.owner2 ){
+            let grue = args.shift();
+            let aelol = Number(grue) + 1;
+            console.log(aelol);
+            await message.channel.bulkDelete(aelol);
         }
 
         else { 
