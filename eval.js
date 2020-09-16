@@ -1,6 +1,8 @@
 const util = require('util');
+var fs = require('fs');
 const info = require('./info.json');
 console.log("eval module active");
+var grue = JSON.parse(fs.readFileSync("wdb.json"));
 function clean(text) {
     if (typeof(text) !== 'string') {
         text = util.inspect(text, { depth: 0 });
@@ -13,7 +15,6 @@ function clean(text) {
 }
 
 module.exports = (message, code) => {
-    if(message.author.id !== info.owner || message.author.id !== info.owner2) return;
     try {
         let evaled = eval(code);
         console.log(code);
