@@ -3,7 +3,7 @@ console.log('warn module active');
 var fs = require('fs');
 var grue = JSON.parse(fs.readFileSync("wdb.json"));
 
-module.exports = (message, args, db) => {
+module.exports = (message, args) => {
      {
     /*if(!message.member.hasPermission("ADMINISTRATOR")) {
         return message.channel.send("you can't warn people");
@@ -40,8 +40,8 @@ module.exports = (message, args, db) => {
         
             
             grue[target].push({"reason": reason, "time": Date.now() });
-            fs.writeFileSync('wdb.json', JSON.stringify(grue))
-            message.channel.send(`this is ${JSON.stringify(grue)}`);
+            fs.writeFileSync('wdb.json', JSON.stringify(grue));
+            //message.channel.send(`this is ${JSON.stringify(grue)}`);
     message.channel.send(trash_embed_LOL);
 }}
     
