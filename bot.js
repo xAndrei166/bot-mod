@@ -1,6 +1,7 @@
 var fs = require('fs');
 const info = require('./info.json');
 const Discord = require('discord.js');
+const echo = require('./commands/echo.js');
 const evalCmd = require('./commands/eval.js');
 const kick = require('./commands/kick.js');
 const ban = require('./commands/ban.js');
@@ -60,6 +61,11 @@ bot.on("message", async message => {
                 if (!utils.hasPerm(message, "mchannel")) return;
                 return purge(message, args)
             }
+			
+			case "echo": {
+				if (!utils.hasPerm(message, "mchannel")) return;
+				return echo(message, args)
+			}
 
             default: {
                 return;
