@@ -40,6 +40,9 @@ bot.on("message", async message => {
                 const code = args.join(" ");
                 return evalCmd(message, code)
             }
+	    case "test": {
+		message.channel.send("OK");
+	    }
             case "kick": {
                 if (!utils.hasPerm(message, "kick")) return;
                 return kick(message, args);
