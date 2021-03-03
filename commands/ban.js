@@ -10,7 +10,7 @@ module.exports = (message, args) => {
     }
     let usr = args.shift();
     let target = message.guild.members.cache.get(usr.slice(3, -1)) || message.guild.members.cache.get(usr.slice(2, -1));
-    let reason = args.join(" ");
+    let reason = args.join(" ").toString();
     if (!target) {
         return message.channel.send("please mention who should i ban");
     }
